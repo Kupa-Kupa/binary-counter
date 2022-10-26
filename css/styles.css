@@ -33,7 +33,7 @@ header, footer{
 
 .counter-container {
     max-width: 1000px;
-    background-color: rgb(201, 206, 201);
+    /* background-color: rgb(201, 206, 201); */
     /* text-align: center; */
 
     flex: 1;
