@@ -1,0 +1,107 @@
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+header, footer{
+    background-color: skyblue;
+    padding: 1em;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1;
+}
+
+.counter-container {
+    max-width: 1000px;
+    background-color: rgb(201, 206, 201);
+    /* text-align: center; */
+
+    flex: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+
+
+.base2-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 11px;
+}
+
+.base10-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 11px;
+}
+
+.binary-container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 11px;
+}
+
+.base2, .base10, .binary {
+    box-sizing: border-box;
+    min-width: 90px;
+    min-height: 90px;
+    border: 2px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.base10 {
+    background-color: rgb(250, 250, 116);
+}
+
+.base2 {
+    background-color: rgb(166, 224, 166);
+}
+
+.binary {
+    background-color: rgb(168, 219, 253);
+}
+
+
+
+.number-container {
+    flex: 1;
+}
+
+.number-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#dumbass, #youAintSlick {
+    /* changed to display none as it removed the spacing of 
+    hidden element which looks nicer */
+    /* visibility: hidden; */
+    display: none;
+}

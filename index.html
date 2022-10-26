@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>Counting to 1023 in Binary</h1>
+        </nav>
+    </header>
+
+
+    <div class="content-container">
+
+        <div class="counter-container">
+
+            <div class="base2-container">
+                <div class="base2">
+                    <span>2<sup>0</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>1</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>2</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>3</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>4</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>5</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>6</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>7</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>8</sup></span>
+                </div>
+
+                <div class="base2">
+                    <span>2<sup>9</sup></span>
+                </div>
+
+            </div>
+
+            <div class="base10-container">
+                <div class="base10">1</div>
+                <div class="base10">2</div>
+                <div class="base10">4</div>
+                <div class="base10">8</div>
+                <div class="base10">16</div>
+                <div class="base10">32</div>
+                <div class="base10">64</div>
+                <div class="base10">128</div>
+                <div class="base10">256</div>
+                <div class="base10">512</div>
+            </div>
+
+            <div class="binary-container">
+
+                <div class="binary">
+                    <span id="col-1">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-2">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-3">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-4">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-5">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-6">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-7">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-8">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-9">0</span>
+                </div>
+
+                <div class="binary">
+                    <span id="col-10">0</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="number-container">
+
+        <div class="number">
+
+                <label for="number">Enter a number between 0 and 1023</label>
+
+                <input id='number' type='number' name='number' required 
+                min="0" max="1023">
+
+                <input type="submit" value="Get Number">
+
+                <button id="getBinary">GET BINARY</button>
+
+        </div>
+
+        <div>
+            <p>Base 10 Number Entered: <span id="userNumber">___</span> </p>
+        </div>
+
+        <div>
+            <p>Binary = <span id="binaryNumber">___</span> </p>
+        </div>
+
+        <div id="dumbass">
+            <p>Yeah <span id="dumbassUser">___</span> isn't between 0 and 1023 
+                dumbass.</p>
+        </div>
+
+        <div id="youAintSlick">
+            <p>You aren't slick smartass. Whole numbers only.</p>
+        </div>
+
+    </div>
+
+    <script>
+        const input = document.querySelector("input[name='number']");
+
+        input.addEventListener('change', updateValue);
+
+        function updateValue(){
+            let number = document.getElementById("number").value;
+            document.getElementById("userNumber").innerText = number;
+
+            if (number < 0 || number > 1023) {
+                document.getElementById("dumbassUser").innerText = number;
+                document.getElementById("dumbass").style.display = "initial";
+                document.getElementById("binaryNumber").innerText = "___";
+            } else {
+                document.getElementById("dumbass").style.display = "none";
+
+                let binary = parseInt(number).toString(2);
+                document.getElementById("binaryNumber").innerText = binary;
+
+                // want to iterate over binary variable and send the 
+                // digits to populate the boxes
+
+
+                // split the binary value into an array of single numbers
+                let array = binary.split('');
+                for (let i = 1; i <= array.length; i) {
+                    console.log(i);
+                    // I want to assign the last number in the array first
+                    // otherwise it will display the binary number backwards
+                    let binaryText = array[array.length - i];
+                    console.log(binaryText);
+                    document.getElementById("col-" + i).innerText = binaryText;
+                    i++;
+                }
+                console.log(array)
+
+
+            }
+
+            if (((number * 10) % 10) != 0) {
+                document.getElementById("youAintSlick").style.display = "initial";
+            } else {
+                document.getElementById("youAintSlick").style.display = "none";
+            }
+        }
+    </script>
+
+
+    <footer>
+        footer text
+    </footer>
+
+    
+</body>
+
+</html>
