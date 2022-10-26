@@ -137,9 +137,9 @@
                 <input id='number' type='number' name='number' required 
                 min="0" max="1023">
 
-                <input type="submit" value="Get Number">
-
-                <button id="getBinary">GET BINARY</button>
+                <!-- the buttons were not needed to accomplish this project -->
+                <!-- <input type="submit" value="Get Number"> -->
+                <!-- <button id="getBinary">GET BINARY</button> -->
 
         </div>
 
@@ -171,6 +171,11 @@
             let number = document.getElementById("number").value;
             document.getElementById("userNumber").innerText = number;
 
+            // making sure that the binary row is reset to all 0s each number change
+            for (let i = 0; i < 10; i++) {
+                    document.getElementById("col-" + (i+1)).innerText = "0";
+                }
+
             if (number < 0 || number > 1023) {
                 document.getElementById("dumbassUser").innerText = number;
                 document.getElementById("dumbass").style.display = "initial";
@@ -181,24 +186,21 @@
                 let binary = parseInt(number).toString(2);
                 document.getElementById("binaryNumber").innerText = binary;
 
-                // want to iterate over binary variable and send the 
-                // digits to populate the boxes
-
+                // want to iterate over binary variable and send the digits to populate the boxes
 
                 // split the binary value into an array of single numbers
+                // this for loop would probably have been much cleaner and 
+                // easier if i had just change col-1 to start at col-0
                 let array = binary.split('');
                 for (let i = 1; i <= array.length; i) {
-                    console.log(i);
+                    // console.log(i);
                     // I want to assign the last number in the array first
                     // otherwise it will display the binary number backwards
                     let binaryText = array[array.length - i];
-                    console.log(binaryText);
+                    // console.log(binaryText);
                     document.getElementById("col-" + i).innerText = binaryText;
                     i++;
                 }
-                console.log(array)
-
-
             }
 
             if (((number * 10) % 10) != 0) {
